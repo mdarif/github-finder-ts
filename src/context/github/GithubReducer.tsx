@@ -1,5 +1,7 @@
-type ACTIONTYPE = { type: 'GET_USERS'; payload: object };
-// | { type: 'decrement'; payload: string };
+type ACTIONTYPE =
+  | { type: 'GET_USERS'; payload: object }
+  | { type: 'SET_LOADING'; payload: boolean }
+  | { type: 'CLEAR_USERS' };
 
 const githubReducer = (state: any, action: ACTIONTYPE) => {
   switch (action.type) {
@@ -8,6 +10,16 @@ const githubReducer = (state: any, action: ACTIONTYPE) => {
         ...state,
         users: action.payload,
         loading: false,
+      };
+    case 'SET_LOADING':
+      return {
+        ...state,
+        loading: true,
+      };
+    case 'CLEAR_USERS':
+      return {
+        ...state,
+        users: [],
       };
     default:
       return state;

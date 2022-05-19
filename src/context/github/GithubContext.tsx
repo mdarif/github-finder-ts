@@ -4,7 +4,8 @@ import githubReducer from './GithubReducer';
 type GithubContextDefaultType = {
   users: any[];
   loading: boolean;
-  fetchUsers: () => Promise<void>;
+  searchUsers: (text: string) => Promise<void>;
+  clearUsers: () => void;
 };
 
 const GithubContext = createContext({} as GithubContextDefaultType);
@@ -19,24 +20,48 @@ type GithubContextProps = {
 export const GithubProvider = ({ children }: GithubContextProps) => {
   const initialState = {
     users: [],
-    loading: true,
+    loading: false,
   };
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
-  const fetchUsers = async () => {
-    const response = await fetch(`${GITHUB_URL}/users`, {
+  // Get search results
+  const searchUsers = async (text: string) => {
+    if (text === '') return;
+
+    setLoading();
+
+    /**
+     * The URLSearchParams interface defines utility methods to work with the query string of a URL
+     */
+    const params = new URLSearchParams({
+      q: text,
+    });
+
+    const response = await fetch(`${GITHUB_URL}/search/users?${params}`, {
       headers: {
         Authorization: `token ${GITHUB_TOKEN}`,
       },
     });
 
-    const data = await response.json();
+    const { items } = await response.json();
 
     dispatch({
       type: 'GET_USERS',
-      payload: data,
+      payload: items,
     });
+  };
+
+  // Clear users from state
+  const clearUsers = () => {
+    dispatch({
+      type: 'CLEAR_USERS',
+    });
+  };
+
+  // Set loading to true
+  const setLoading = () => {
+    dispatch({ type: 'SET_LOADING', payload: true });
   };
 
   return (
@@ -44,7 +69,8 @@ export const GithubProvider = ({ children }: GithubContextProps) => {
       value={{
         users: state.users,
         loading: state.loading,
-        fetchUsers,
+        searchUsers,
+        clearUsers,
       }}
     >
       {children}
