@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 type UserItemProps = {
   user: {
     login: string;
@@ -19,6 +21,12 @@ const UserItem = ({ user: { login, avatar_url } }: UserItemProps) => {
         </div>
         <div>
           <h2 className='card-title'>{login}</h2>
+          <Link
+            className='text-base-content text-opacity-40'
+            to={`/user/${login}`}
+          >
+            Visit Profile
+          </Link>
         </div>
       </div>
     </div>
