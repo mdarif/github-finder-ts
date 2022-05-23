@@ -30,7 +30,7 @@ const github = axios.create({
   export const getUserAndRepos = async (login: string): Promise<UserAndReposType> => {
     const [ user, repos ] = await Promise.all([
       github.get(`/users/${login}`),
-      github.get(`/users/${login}/repos`),
+      github.get(`/users/${login}/repos?sort=created&per_page=10`),
     ])
 
     return {
