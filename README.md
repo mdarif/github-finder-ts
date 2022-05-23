@@ -12,15 +12,15 @@
 
 # Github Finder
 An App to search users on Github and get their repositories and other information.
+
 ![API Gateway, Lambda and DynamoDB](./src/images/github-finder-shot.png)
 
 
 ## Stacks Used
 - [ReactJS](https://reactjs.org/)
-- [React Icons](https://react-icons.github.io/react-icons/)
-- [GitHub API](https://docs.github.com/en/rest)
-- [daisyUI](https://daisyui.com/)
-- [AXIOS](https://axios-http.com/docs/intro)
 - [TypeScript](https://www.typescriptlang.org/)
-
-## 
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [GitHub Rest API](https://docs.github.com/en/rest)
+- [daisyUI](https://daisyui.com/)
+- [axios](https://axios-http.com/docs/intro)
+- [Vercel](https://vercel.com/)
