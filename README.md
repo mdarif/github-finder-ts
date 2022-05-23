@@ -24,3 +24,7 @@ An App to search users on Github and get their repositories and other informatio
 - [daisyUI](https://daisyui.com/)
 - [axios](https://axios-http.com/docs/intro)
 - [Vercel](https://vercel.com/)
+
+## Vercel Deployment
+
+- https://github-finder-ts.vercel.app/
