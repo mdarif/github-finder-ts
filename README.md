@@ -19,11 +19,78 @@ An App to search users on Github and get their repositories and other informatio
 ## Stacks Used
 - [ReactJS](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Cypress](https://www.cypress.io/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [GitHub Rest API](https://docs.github.com/en/rest)
 - [daisyUI](https://daisyui.com/)
 - [axios](https://axios-http.com/docs/intro)
 - [Vercel](https://vercel.com/)
+
+
+## Folder Structure
+
+```
+.
+├── LICENSE
+├── README.md
+├── SECURITY.md
+├── cypress
+│   ├── e2e
+│   │   └── spec.cy.ts
+│   ├── fixtures
+│   │   └── example.json
+│   └── support
+│       ├── commands.ts
+│       └── e2e.ts
+├── cypress.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── src
+│   ├── App.tsx
+│   ├── alert
+│   │   ├── AlertContext.tsx
+│   │   └── AlertReducer.tsx
+│   ├── components
+│   │   ├── layout
+│   │   │   ├── Alert.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── NavBar.tsx
+│   │   │   ├── Spinner.jsx
+│   │   │   └── assets
+│   │   │       └── spinner.gif
+│   │   ├── repos
+│   │   │   ├── RepoItem.tsx
+│   │   │   └── RepoList.tsx
+│   │   └── users
+│   │       ├── UserItem.tsx
+│   │       ├── UserResults.tsx
+│   │       └── UserSearch.tsx
+│   ├── context
+│   │   └── github
+│   │       ├── GithubActions.ts
+│   │       ├── GithubContext.tsx
+│   │       └── GithubReducer.tsx
+│   ├── images
+│   │   └── github-finder-shot.png
+│   ├── index.css
+│   ├── index.tsx
+│   ├── pages
+│   │   ├── About.tsx
+│   │   ├── Home.tsx
+│   │   ├── NotFound.tsx
+│   │   └── User.tsx
+│   └── react-app-env.d.ts
+├── tailwind.config.js
+└── tsconfig.json
+```
 
 ## Vercel Deployment
 
